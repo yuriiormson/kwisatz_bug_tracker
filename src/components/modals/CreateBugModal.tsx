@@ -112,7 +112,7 @@ export const CreateBugModal = ({ isOpen, onClose }: CreateBugModalProps) => {
                             <option value="">Unassigned</option>
                             {users.map((user) => (
                                 <option key={user.id} value={user.id}>
-                                    {user.name}
+                                    {user.firstName} {user.lastName}
                                 </option>
                             ))}
                         </select>

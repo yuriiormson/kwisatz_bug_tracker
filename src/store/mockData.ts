@@ -3,24 +3,30 @@ import type { Bug, User, WorkflowStatus } from '../types';
 export const USERS: User[] = [
     {
         id: 'u1',
-        name: 'Paul Atreides',
+        username: 'paul_atreides',
+        firstName: 'Paul',
+        lastName: 'Atreides',
         email: 'paul@kwisatz.com',
         avatar: 'https://ui-avatars.com/api/?name=Paul+Atreides&background=0D8ABC&color=fff',
         role: 'admin',
     },
     {
         id: 'u2',
-        name: 'Chani',
+        username: 'chani',
+        firstName: 'Chani',
+        lastName: 'Fremen',
         email: 'chani@kwisatz.com',
         avatar: 'https://ui-avatars.com/api/?name=Chani&background=random',
-        role: 'developer',
+        role: 'qa',
     },
     {
         id: 'u3',
-        name: 'Duncan Idaho',
+        username: 'duncan_idaho',
+        firstName: 'Duncan',
+        lastName: 'Idaho',
         email: 'duncan@kwisatz.com',
         avatar: 'https://ui-avatars.com/api/?name=Duncan+Idaho&background=random',
-        role: 'qa',
+        role: 'developer',
     },
 ];
 

@@ -54,9 +54,9 @@ export const KanbanCard = ({ bug, index, user }: KanbanCardProps) => {
                         {user && (
                             <img
                                 src={user.avatar}
-                                alt={user.name}
+                                alt={`${user.firstName} ${user.lastName}`}
                                 className="w-6 h-6 rounded-full ring-1 ring-border"
-                                title={user.name}
+                                title={`${user.firstName} ${user.lastName}`}
                             />
                         )}
                     </div>
