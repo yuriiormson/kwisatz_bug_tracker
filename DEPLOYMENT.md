@@ -93,20 +93,33 @@ Render will now build and deploy your backend. Once finished, it will give you a
 
 Before deploying the frontend, you need to tell it where the backend is.
 
-1.  Open `src/api/axios.ts` (or wherever you define your base URL).
+1.  Open `src/api/client.ts`.
 2.  Change the `baseURL` to your **Render Backend URL**.
     ```typescript
-    // src/api/axios.ts
+    // src/api/client.ts
     import axios from 'axios';
 
     const api = axios.create({
-        baseURL: import.meta.env.VITE_API_URL || 'https://<YOUR-RENDER-URL>.onrender.com/api', 
+        baseURL: import.meta.env.VITE_API_URL || 'http://localhost:3000/api', 
     });
     // ...
     ```
-    *Tip: It's best to use an environment variable.*
+    *Tip: We will create a `.env.production` file to set this automatically.*
 
-### 2. Deploy to GitHub Pages
+### 2. Configure Router for GitHub Pages
+
+GitHub Pages hosts your site at a subdirectory (e.g., `/kwisatz_bug_tracker/`). We need to tell React Router about this.
+
+1.  Open `src/App.tsx`.
+2.  Add the `basename` prop to the `<Router>` component:
+    ```tsx
+    // src/App.tsx
+    <Router basename={import.meta.env.BASE_URL}>
+      {/* ... */}
+    </Router>
+    ```
+
+### 3. Deploy to GitHub Pages
 
 1.  Run the deploy script:
     ```bash
