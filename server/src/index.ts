@@ -4,6 +4,7 @@ import dotenv from 'dotenv';
 import { PrismaClient } from '@prisma/client';
 
 dotenv.config();
+import './cron';
 
 const app = express();
 const prisma = new PrismaClient();

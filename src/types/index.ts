@@ -4,10 +4,15 @@ export type Role = 'admin' | 'developer' | 'qa' | 'viewer';
 
 export interface User {
     id: string;
-    name: string;
+    username: string;
+    firstName: string;
+    lastName: string;
     email: string;
-    avatar: string;
-    role: Role;
+    avatar?: string;
+    role: 'admin' | 'developer' | 'qa' | 'qa_lead' | 'qa_senior_reviewer' | 'viewer' | 'superadmin';
+    projectName?: string;
+    lastLogin?: string; // ISO date string
+    createdAt?: string;
 }
 
 export interface WorkflowStatus {

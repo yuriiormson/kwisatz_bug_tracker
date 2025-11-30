@@ -48,13 +48,13 @@ export const Header = () => {
                         {currentUser && (
                             <>
                                 <div className="text-right hidden md:block">
-                                    <p className="text-sm font-medium leading-none">{currentUser.name}</p>
-                                    <p className="text-xs text-muted-foreground mt-1">{currentUser.role}</p>
+                                    <p className="text-sm font-medium leading-none">{currentUser.firstName} {currentUser.lastName}</p>
+                                    <p className="text-xs text-muted-foreground mt-1">{currentUser.role.replace('_', ' ')}</p>
                                 </div>
                                 <div className="relative group">
                                     <img
                                         src={currentUser.avatar}
-                                        alt={currentUser.name}
+                                        alt={currentUser.username}
                                         className="w-9 h-9 rounded-full ring-2 ring-border cursor-pointer"
                                     />
                                     <div className="absolute right-0 top-full pt-2 w-48 hidden group-hover:block">

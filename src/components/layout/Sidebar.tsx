@@ -1,4 +1,4 @@
-import { LayoutDashboard, KanbanSquare, List, Settings, Bug as BugIcon } from 'lucide-react';
+import { LayoutDashboard, KanbanSquare, List, Settings, Bug as BugIcon, Users } from 'lucide-react';
 import { NavLink } from 'react-router-dom';
 import { clsx } from 'clsx';
 
@@ -7,6 +7,7 @@ export const Sidebar = () => {
         { icon: LayoutDashboard, label: 'Dashboard', to: '/dashboard' },
         { icon: KanbanSquare, label: 'Board', to: '/board' },
         { icon: List, label: 'Issues', to: '/list' },
+        { icon: Users, label: 'Users', to: '/users' },
     ];
 
     return (

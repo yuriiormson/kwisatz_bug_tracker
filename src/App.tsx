@@ -4,6 +4,7 @@ import { Dashboard } from './pages/Dashboard';
 import { BugBoard } from './pages/BugBoard';
 import { BugList } from './pages/BugList';
 import { BugDetail } from './pages/BugDetail';
+import { UsersList } from './pages/UsersList';
 import { Login } from './pages/Login';
 import { Register } from './pages/Register';
 import { LandingPage } from './pages/LandingPage';
@@ -25,6 +26,7 @@ function App() {
                 <Route path="/dashboard" element={<Dashboard />} />
                 <Route path="/board" element={<BugBoard />} />
                 <Route path="/list" element={<BugList />} />
+                <Route path="/users" element={<UsersList />} />
                 <Route path="/bug/:id" element={<BugDetail />} />
               </Route>
             </Route>

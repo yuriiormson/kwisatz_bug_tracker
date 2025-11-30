@@ -61,7 +61,7 @@ export const BugDetail = () => {
                                 <div>
                                     <div className="bg-muted/50 rounded-lg p-3">
                                         <p className="text-sm">
-                                            <span className="font-medium">{reporter?.name}</span> created this issue
+                                            <span className="font-medium">{reporter ? `${reporter.firstName} ${reporter.lastName}` : 'Unknown User'}</span> created this issue
                                         </p>
                                     </div>
                                     <p className="text-xs text-muted-foreground mt-1">
@@ -81,8 +81,8 @@ export const BugDetail = () => {
                                 <div className="flex items-center gap-2">
                                     {assignee ? (
                                         <>
-                                            <img src={assignee.avatar} alt={assignee.name} className="w-6 h-6 rounded-full" />
-                                            <span className="text-sm font-medium">{assignee.name}</span>
+                                            <img src={assignee.avatar} alt={assignee.username} className="w-6 h-6 rounded-full" />
+                                            <span className="text-sm font-medium">{assignee.firstName} {assignee.lastName}</span>
                                         </>
                                     ) : (
                                         <span className="text-sm text-muted-foreground italic">Unassigned</span>

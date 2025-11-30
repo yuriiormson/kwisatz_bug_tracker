@@ -10,10 +10,16 @@ router.get('/', authenticateToken, async (req, res) => {
         const users = await prisma.user.findMany({
             select: {
                 id: true,
-                name: true,
+                username: true,
+                firstName: true,
+                lastName: true,
                 email: true,
+                projectName: true,
                 avatar: true,
                 role: true,
+                isAuthorized: true,
+                lastLogin: true,
+                createdAt: true,
             },
         });
         res.json(users);
