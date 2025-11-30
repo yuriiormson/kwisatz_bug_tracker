@@ -1,0 +1,95 @@
+import type { Bug, User, WorkflowStatus } from '../types';
+
+export const USERS: User[] = [
+    {
+        id: 'u1',
+        name: 'Paul Atreides',
+        email: 'paul@kwisatz.com',
+        avatar: 'https://ui-avatars.com/api/?name=Paul+Atreides&background=0D8ABC&color=fff',
+        role: 'admin',
+    },
+    {
+        id: 'u2',
+        name: 'Chani',
+        email: 'chani@kwisatz.com',
+        avatar: 'https://ui-avatars.com/api/?name=Chani&background=random',
+        role: 'developer',
+    },
+    {
+        id: 'u3',
+        name: 'Duncan Idaho',
+        email: 'duncan@kwisatz.com',
+        avatar: 'https://ui-avatars.com/api/?name=Duncan+Idaho&background=random',
+        role: 'qa',
+    },
+];
+
+export const WORKFLOW_STATUSES: WorkflowStatus[] = [
+    { id: 'backlog', label: 'Backlog', color: 'bg-slate-500', order: 0 },
+    { id: 'todo', label: 'To Do', color: 'bg-blue-500', order: 1 },
+    { id: 'in_progress', label: 'In Progress', color: 'bg-amber-500', order: 2 },
+    { id: 'review', label: 'In Review', color: 'bg-purple-500', order: 3 },
+    { id: 'done', label: 'Done', color: 'bg-green-500', order: 4 },
+];
+
+export const MOCK_BUGS: Bug[] = [
+    {
+        id: 'BUG-101',
+        title: 'Spice Harvester malfunction in Sector 7',
+        description: 'The harvester is not collecting spice at the expected rate. Sensors indicate a jam in the intake mechanism.',
+        status: 'in_progress',
+        priority: 'high',
+        severity: 'major',
+        assigneeId: 'u2',
+        reporterId: 'u1',
+        createdAt: new Date('2023-10-25T10:00:00Z').toISOString(),
+        updatedAt: new Date('2023-10-26T14:30:00Z').toISOString(),
+    },
+    {
+        id: 'BUG-102',
+        title: 'Ornithopter navigation system glitch',
+        description: 'Navigation system resets unexpectedly during sandstorms.',
+        status: 'todo',
+        priority: 'critical',
+        severity: 'critical',
+        assigneeId: 'u1',
+        reporterId: 'u3',
+        createdAt: new Date('2023-10-27T09:15:00Z').toISOString(),
+        updatedAt: new Date('2023-10-27T09:15:00Z').toISOString(),
+    },
+    {
+        id: 'BUG-103',
+        title: 'Water reclamation efficiency drop',
+        description: 'Efficiency dropped by 5% in the last cycle. Needs investigation.',
+        status: 'backlog',
+        priority: 'medium',
+        severity: 'minor',
+        reporterId: 'u2',
+        createdAt: new Date('2023-10-28T11:00:00Z').toISOString(),
+        updatedAt: new Date('2023-10-28T11:00:00Z').toISOString(),
+    },
+    {
+        id: 'BUG-104',
+        title: 'Shield generator overheating',
+        description: 'Shield generator overheats when activated for more than 30 minutes.',
+        status: 'review',
+        priority: 'high',
+        severity: 'major',
+        assigneeId: 'u3',
+        reporterId: 'u1',
+        createdAt: new Date('2023-10-24T16:45:00Z').toISOString(),
+        updatedAt: new Date('2023-10-29T10:20:00Z').toISOString(),
+    },
+    {
+        id: 'BUG-105',
+        title: 'Sandworm lure frequency drift',
+        description: 'The thumper is emitting frequencies outside the standard range.',
+        status: 'done',
+        priority: 'low',
+        severity: 'minor',
+        assigneeId: 'u2',
+        reporterId: 'u3',
+        createdAt: new Date('2023-10-20T08:00:00Z').toISOString(),
+        updatedAt: new Date('2023-10-22T15:00:00Z').toISOString(),
+    },
+];

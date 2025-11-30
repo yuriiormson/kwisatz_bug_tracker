@@ -1,0 +1,55 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+model User {
+  id        String   @id @default(uuid())
+  email     String   @unique
+  password  String
+  name      String
+  avatar    String?
+  role      String   @default("viewer") // admin, developer, qa, viewer
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  reportedBugs Bug[] @relation("Reporter")
+  assignedBugs Bug[] @relation("Assignee")
+  comments     Comment[]
+}
+
+model Bug {
+  id          String   @id @default(uuid())
+  title       String
+  description String
+  status      String   @default("backlog")
+  priority    String   @default("medium")
+  severity    String   @default("minor")
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+
+  reporterId  String
+  reporter    User     @relation("Reporter", fields: [reporterId], references: [id])
+  
+  assigneeId  String?
+  assignee    User?    @relation("Assignee", fields: [assigneeId], references: [id])
+
+  comments    Comment[]
+}
+
+model Comment {
+  id        String   @id @default(uuid())
+  content   String
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  userId    String
+  user      User     @relation(fields: [userId], references: [id])
+
+  bugId     String
+  bug       Bug      @relation(fields: [bugId], references: [id])
+}
