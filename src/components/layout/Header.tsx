@@ -3,6 +3,7 @@ import { Bell, Plus, Search } from 'lucide-react';
 import { useNavigate } from 'react-router-dom';
 import { useAuth } from '../../context/AuthContext';
 import { CreateBugModal } from '../modals/CreateBugModal';
+import { formatRole } from '../../utils/formatters';
 
 export const Header = () => {
     const { user: currentUser, logout } = useAuth();
@@ -49,7 +50,7 @@ export const Header = () => {
                             <>
                                 <div className="text-right hidden md:block">
                                     <p className="text-sm font-medium leading-none">{currentUser.firstName} {currentUser.lastName}</p>
-                                    <p className="text-xs text-muted-foreground mt-1">{currentUser.role.replace('_', ' ')}</p>
+                                    <p className="text-xs text-muted-foreground mt-1">{formatRole(currentUser.role)}</p>
                                 </div>
                                 <div className="relative group">
                                     <img

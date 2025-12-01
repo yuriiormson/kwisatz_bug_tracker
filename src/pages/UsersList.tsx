@@ -1,6 +1,7 @@
 import { useState, useEffect } from 'react';
 import { Search } from 'lucide-react';
 import api from '../api/client';
+import { formatRole } from '../utils/formatters';
 
 import type { User } from '../types';
 
@@ -88,13 +89,13 @@ export const UsersList = () => {
                                 <td className="px-6 py-4 text-muted-foreground">{user.email}</td>
                                 <td className="px-6 py-4">{user.projectName || '-'}</td>
                                 <td className="px-6 py-4">
-                                    <span className={`inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium capitalize
+                                    <span className={`inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium
                                         ${user.role === 'admin' ? 'bg-purple-100 text-purple-800 dark:bg-purple-900/30 dark:text-purple-300' :
                                             user.role === 'developer' ? 'bg-blue-100 text-blue-800 dark:bg-blue-900/30 dark:text-blue-300' :
                                                 user.role === 'qa' || user.role === 'qa_lead' || user.role === 'qa_senior_reviewer' ? 'bg-green-100 text-green-800 dark:bg-green-900/30 dark:text-green-300' :
                                                     user.role === 'superadmin' ? 'bg-red-100 text-red-800 dark:bg-red-900/30 dark:text-red-300' :
                                                         'bg-gray-100 text-gray-800 dark:bg-gray-800 dark:text-gray-300'}`}>
-                                        {user.role.replace('_', ' ')}
+                                        {formatRole(user.role)}
                                     </span>
                                 </td>
                                 <td className="px-6 py-4 text-muted-foreground">
