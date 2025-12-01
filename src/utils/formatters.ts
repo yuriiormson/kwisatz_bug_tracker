@@ -5,7 +5,7 @@ export const formatRole = (role: string): string => {
         case 'qa_lead':
             return 'QA Lead';
         case 'qa_senior_reviewer':
-            return 'QA Senior Reviewer';
+            return 'QA Sr. Reviewer';
         case 'superadmin':
             return 'Superadmin';
         case 'admin':
